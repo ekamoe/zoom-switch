@@ -17,19 +17,22 @@
     />
   </head>
   <body>
-    <!--HEADER, MENU, TEXT TK:-->
-    <!--testing watts layer toggle 
-      <nav id="menu"></nav>-->
     <div id="map"></div>
-    <!--testing legend tutorial-->
+    <!--testing info-box tutorial-->
     <div class="map-overlay" id="info-box">
       <h2>Zoom Switch Prototype</h2>
-      <div id="pd"><p>TK</p></div>
+      <div id="pd"><p>Yellow indicates the highest need.</p></div>
     </div>
-    <div class="map-overlay" id="legend"></div>
+    <!--map-overlay legend does work-->
+    <div class="map-overlay" id="legend">
+      <h3>data sufficiency<br />(zoom 1.25-5.5)</h3>
+    </div>
+    <!--need to move this elsewhere-->
+    <div class="map-overlay" id="secondLegend">
+      <h3>probability<br />(zoom 5.5-16)</h3>
+    </div>
+    <!--testing mouse event-->
+    <pre id="info"></pre>
     <script src="js/app.js"></script>
-    <!--NEED THIS HTML5 TEMPLATE?
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
--->
   </body>
 </html>
