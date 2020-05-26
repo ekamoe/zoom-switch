@@ -70,7 +70,7 @@ p {
   margin-right: 5px;
 }
 
-/* testing second legend */
+/* second legend */
 #secondLegend {
   padding: 15px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -88,12 +88,12 @@ p {
   margin-right: 5px;
 }
 
-/*testing mouse event*/
+/*coordinates revealed with mouseclick*/
 #info {
   display: block;
   position: relative;
   margin: 0px auto;
-  width: 30%;
+  width: 28%;
   padding: 10px;
   border: none;
   border-radius: 3px;
