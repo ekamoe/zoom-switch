@@ -19,15 +19,15 @@ map.on("load", function () {
   var layers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
   var colors = [
     "#fde725",
-    "#bcdf27",
-    "#7ad251",
-    "#43bf70",
-    "#22a884",
-    "#20908d",
-    "#29788e",
-    "#345f8d",
-    "#404387",
-    "#482475",
+    "#fde725",
+    "#b5de2c",
+    "#6cce59",
+    "#35b779",
+    "#1e9e89",
+    "#25838e",
+    "#31688e",
+    "#3e4a89",
+    "#472878",
     "#440154",
   ];
   // ssp layer
@@ -58,7 +58,7 @@ map.on("load", function () {
     key.style.backgroundColor = secondColor;
 
     var value = document.createElement("span");
-    value.innerHTML = secondLayer; // is this the problem?
+    value.innerHTML = secondLayer;
     item.appendChild(key);
     item.appendChild(value);
     secondLegend.appendChild(item);
@@ -69,5 +69,5 @@ map.on("load", function () {
 map.on("click", function (e) {
   document.getElementById("info").innerHTML =
     // e.lngLat is the longitude, latitude geographical position of the event
-    JSON.stringify(e.lngLat.wrap());
+    JSON.stringify(e.lngLat.toArray());
 });
