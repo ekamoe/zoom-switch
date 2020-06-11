@@ -10,11 +10,48 @@ var map = new mapboxgl.Map({
   maxZoom: 16, // to navigate neighborhoods
 });
 
-// Mapbox code for zoom and rotation controls
-map.addControl(new mapboxgl.NavigationControl());
-
-// Mapbox code for legend overlays
+// Upon map load...
 map.on("load", function () {
+  // Mapbox code for zoom and rotation controls
+  map.addControl(new mapboxgl.NavigationControl());
+
+  // upper left popup
+  var popupText =
+    "<b>" +
+    "This map visualizes data for the week of July 6, 2018, as modeled by the " +
+    "<a href='https://www.birds.cornell.edu/home'>" +
+    "Cornell Lab of Ornithology " +
+    "</a>" +
+    "<br>" +
+    "for " +
+    "<a href='https://ebird.org/science/status-and-trends'>" +
+    "eBird Status and Trends" +
+    "</a>" +
+    "." +
+    "</b>" +
+    "<li>" +
+    "The first layer shows a relative measure of " +
+    "<b>" +
+    "data sufficiency " +
+    "</b>" +
+    "to build abundance models." +
+    "<li>" +
+    "As you zoom closer, the map will switch to reveal the " +
+    "<b>" +
+    "probability layer" +
+    "</b>" +
+    ", which shows the probability of receiving an eBird checklist from a givel pixel during one week." +
+    "<li>" +
+    "Please use caution when birding in new locations. Not all areas will be accessible.";
+  new mapboxgl.Popup({
+    closeOnClick: false,
+    anchor: top,
+  })
+    .setLngLat([-20, 35]) // CENTER OF MAP
+    .setHTML(popupText)
+    .setMaxWidth("650px")
+    .addTo(map);
+  // Mapbox code for legend overlays no longer working, but is not as important as the infoWindow & nav control
   // gcc layer
   var layers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
   var colors = [
@@ -65,9 +102,40 @@ map.on("load", function () {
   }
 });
 
-//  Display lat-lng on mouse click
+/* //  Display lat-lng on mouse click
 map.on("click", function (e) {
   document.getElementById("info").innerHTML =
     // e.lngLat is the longitude, latitude geographical position of the event
     JSON.stringify(e.lngLat.toArray());
 });
+
+map.on("mousemove", function (e) {
+  var features = map.queryRenderedFeatures(e.point);
+
+  // Limit the number of properties we're displaying for
+  // legibility and performance
+  var displayProperties = [
+    "type",
+    "properties",
+    "id",
+    "layer",
+    "source",
+    "sourceLayer",
+    "state",
+  ];
+
+  var displayFeatures = features.map(function (feat) {
+    var displayFeat = {};
+    displayProperties.forEach(function (prop) {
+      displayFeat[prop] = feat[prop];
+    });
+    return displayFeat;
+  });
+
+  document.getElementById("features").innerHTML = JSON.stringify(
+    displayFeatures,
+    null,
+    2
+  );
+});
+ */
