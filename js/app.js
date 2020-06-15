@@ -40,7 +40,7 @@ map.on("load", function () {
     "<b>" +
     "probability layer" +
     "</b>" +
-    ", which shows the probability of receiving an eBird checklist from a givel pixel during one week." +
+    ", which shows the probability of receiving an eBird checklist from a given pixel during one week." +
     "<br>" +
     "Please use caution when birding in new locations. Not all areas will be accessible.";
   new mapboxgl.Popup({
